@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Grade Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__badge">Student Management</div>
+      <h1 class="header__title">Grade Calculator</h1>
+      <p class="header__subtitle">Enter student details and marks to generate a report card — same logic as the original C program.</p>
+    </header>
+
+    <main class="main">
+      <section class="card card--form" aria-labelledby="form-heading">
+        <h2 id="form-heading" class="card__title">Student Information</h2>
+
+        <form id="grade-form" class="form" novalidate>
+          <div class="form__group">
+            <label for="name" class="form__label">Student Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form__input"
+              placeholder="Enter your name"
+              maxlength="50"
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <fieldset class="subjects">
+            <legend class="subjects__legend">Subject Marks</legend>
+            <div class="subjects__grid">
+              <div class="form__group">
+                <label for="french" class="form__label">French</label>
+                <input type="number" id="french" name="french" class="form__input" min="0" max="100" placeholder="0–100" required>
+              </div>
+              <div class="form__group">
+                <label for="english" class="form__label">English</label>
+                <input type="number" id="english" name="english" class="form__input" min="0" max="100" placeholder="0–100" required>
+              </div>
+              <div class="form__group">
+                <label for="maths" class="form__label">Maths</label>
+                <input type="number" id="maths" name="maths" class="form__input" min="0" max="100" placeholder="0–100" required>
+              </div>
+              <div class="form__group">
+                <label for="science" class="form__label">Science</label>
+                <input type="number" id="science" name="science" class="form__input" min="0" max="100" placeholder="0–100" required>
+              </div>
+              <div class="form__group">
+                <label for="social" class="form__label">Social</label>
+                <input type="number" id="social" name="social" class="form__input" min="0" max="100" placeholder="0–100" required>
+              </div>
+            </div>
+          </fieldset>
+
+          <p id="form-error" class="form__error" role="alert" hidden></p>
+
+          <button type="submit" class="btn btn--primary">
+            Generate Report Card
+          </button>
+        </form>
+      </section>
+
+      <section id="report-section" class="card card--report" aria-labelledby="report-heading" hidden>
+        <div class="report__header">
+          <h2 id="report-heading" class="report__title">Student Report Card</h2>
+          <div class="report__divider"></div>
+        </div>
+
+        <p class="report__name-label">Student Name</p>
+        <p id="report-name" class="report__name"></p>
+
+        <ul class="report__marks" id="report-marks"></ul>
+
+        <div class="report__summary">
+          <div class="summary-item">
+            <span class="summary-item__label">Total Marks</span>
+            <span id="report-total" class="summary-item__value"></span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">Percentage</span>
+            <span id="report-percentage" class="summary-item__value"></span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">Grade</span>
+            <span id="report-grade" class="summary-item__value summary-item__value--grade"></span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-item__label">Result</span>
+            <span id="report-result" class="summary-item__value summary-item__value--result"></span>
+          </div>
+        </div>
+
+        <div class="report__footer">
+          <button type="button" id="reset-btn" class="btn btn--secondary">Calculate Another</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Student Grade Calculator — Web edition</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
